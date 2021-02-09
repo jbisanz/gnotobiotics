@@ -143,14 +143,14 @@ def run(protocol: protocol_api.ProtocolContext):
 		p300.drop_tip()
 		
 		p20.pick_up_tip(tips_p20['H12'])
-		p20.aspirate(10, std['A1'].bottom(3))
+		p20.aspirate(10, std['A1'].bottom(5))
 		p20.dispense(10, BindingPlate['A10'])
 		p20.mix(5,20,  BindingPlate['A10'])
 		p20.drop_tip()
 		
 		#serial dilute from A10 down column
-		ROWS = ['A','B','C','D','E','F']
-		TIPS = ['G12','F12','E12','D12','C12']
+		ROWS = ['A','B','C','D','E','F','G']
+		TIPS = ['G12','F12','E12','D12','C12','B12']
 		for i in [0,1,2,3,4]:
 			p20.pick_up_tip(tips_p20[TIPS[i]])
 			p20.aspirate(10, BindingPlate[ROWS[i]+str(10)])
