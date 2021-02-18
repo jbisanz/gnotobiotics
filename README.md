@@ -41,7 +41,7 @@ The extraction volumes for post-lysis extraction have been scaled down 5x to spe
 - [ ] Disrupt for 5 minutes in Biospec beadbeater.
 - [ ] Centrifuge w minutes at ~10,000g.
 - [ ] Transfer 40 µL supernatant to columns 1 and 2 of a 200ul biorad PCR plate (BindingPlate).
-- [ ] Step up OT-2 according to **Figure 1**.
+- [ ] Step up OT-2 according to **Figure 1**. *Note: dilute and add the standard last to prevent cross contamination of reagents. Also ensure that beads and mastermix are well distributed along entire length of reservoir wells.*
 - [ ] Download GnotoTesting.py and load into opentrons app.
 - [ ] Calibrate all deck positions.
 - [ ] **Add a strip of tape or two to secure the bottom right corner of the 20ul tips!!!**
@@ -67,7 +67,7 @@ Because there are no such thing as DNA-free reagents, a background will be obser
 
 ## Figures
 ![Fig1](DeckLayout.png)
-<br>**Figure 1.** OT-2 deck layout. Deck positions are sequentially numbered 1-11 from the bottom left to the top right. **Position 1:** a 384 qPCR plate which is empty. **Position 2:** 100ul of a 16S standard in a 1.5 mL centrifuge tube in position A1 of the opentrons tube rack. **Position 5 and 8:** 200ul opentrons filter tips. **Position 6:** 20ul opentrons filter tips. **Position 7:** a NEST 12-well reservoir containing the following: Column 1 - 300ul mag beads, Column 2 - 2.4 mL binding buffer, Column 3 - 3.6 mL wash buffer 1, Column 4 - 7.2 mL wash buffer 2, Column 5 - 10 mL nuclease free water, Column 6 - 450 iTaq supermix for probes and 90ul 10X primer/probe mix. **Position 10:** Biorad 96-well PCR plate positioned on magnetic capture stand. **Position 11:** a waste container (Agilent 1 well 290 mL reservoir or upside down tip lid).
+<br>**Figure 1.** OT-2 deck layout. Deck positions are sequentially numbered 1-11 from the bottom left to the top right. **Pipettes** Gen2 P300x8 on left mount, Gen 2 P20x8 on right mount. **Position 1:** a 384 qPCR plate which is empty. **Position 2:** 100ul of a 16S standard in a 1.5 mL centrifuge tube in position A1 of the opentrons tube rack. **Position 5 and 8:** 200ul opentrons filter tips. **Position 6:** 20ul opentrons filter tips. **Position 7:** a NEST 12-well reservoir containing the following: Column 1 - 300ul mag beads, Column 2 - 2.4 mL binding buffer, Column 3 - 3.6 mL wash buffer 1, Column 4 - 7.2 mL wash buffer 2, Column 5 - 10 mL nuclease free water, Column 6 - 450 iTaq supermix for probes and 90ul 10X primer/probe mix. **Position 10:** Biorad 96-well PCR plate positioned on magnetic capture stand. **Position 11:** a waste container (Agilent 1 well 290 mL reservoir or upside down tip lid).
 
 ![Fig2]()
 <br> To fill in....
