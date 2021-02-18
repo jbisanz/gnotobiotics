@@ -38,7 +38,7 @@ def run(protocol: protocol_api.ProtocolContext):
 	capture_depth = 0 # depth below ideal bottom of plate to remove supernatants
 	capture_min = 2 # number of minutes to capture beads on magnets
 	nmix = 5 # number of times to pipette to mix
-	drying_min = 5 # number of extra minutes to dry DNA after STD is made
+	drying_min = 0.5 # number of extra minutes to dry DNA after STD is made
 	trash_speed = 1 # the relative speed to discard of liquids into trash, this is an integer multiplier of normal speed, set higher to clear bubbles on outside of tip
 	elution_speed = 0.2 # relative speed to lift supernatant off beads
 
@@ -75,9 +75,9 @@ def run(protocol: protocol_api.ProtocolContext):
 		
 	if AddBeads:
 		protocol.comment('--------->Adding mag beads')
-			p300.pick_up_tip()
-			p300.mix(10, 30, Solutions['A1'])
-			p300.drop_tip()
+		p300.pick_up_tip()
+		p300.mix(10, 30, Solutions['A1'])
+		p300.drop_tip()
 		
 		for i in cols_to_extract:
 			p20.pick_up_tip()
@@ -155,11 +155,11 @@ def run(protocol: protocol_api.ProtocolContext):
 		#serial dilute from A10 down column
 		ROWS = ['A','B','C','D','E','F','G']
 		TIPS = ['G12','F12','E12','D12','C12','B12']
-		for i in [0,1,2,3,4]:
+		for i in [0,1,2,3,4,5]:
 			p20.pick_up_tip(tips_p20[TIPS[i]])
 			p20.aspirate(10, BindingPlate[ROWS[i]+str(10)])
 			p20.dispense(10, BindingPlate[ROWS[i+1]+str(10)])
-			p20.mix(nmix,20, BindingPlate[ROWS[i+1]+str(10)])
+			p20.mix(nmix,20, BindingPlate[ROWS[i+1]+str(10)].bottom(3))
 			p20.drop_tip()
 		
 	if LoadSTD:
