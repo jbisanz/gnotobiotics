@@ -75,9 +75,13 @@ def run(protocol: protocol_api.ProtocolContext):
 		
 	if AddBeads:
 		protocol.comment('--------->Adding mag beads')
+			p300.pick_up_tip()
+			p300.mix(10, 30, Solutions['A1'])
+			p300.drop_tip()
+		
 		for i in cols_to_extract:
 			p20.pick_up_tip()
-			p20.mix(5, 20, Solutions['A1'])
+			#p20.mix(5, 20, Solutions['A1'])
 			p20.aspirate(volume_magbeads, Solutions['A1'])
 			p20.dispense(volume_magbeads, BindingPlate['A'+str(i)])
 			p20.mix(nmix, 20)
