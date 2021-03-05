@@ -159,9 +159,8 @@ def run(protocol: protocol_api.ProtocolContext):
 			p20.pick_up_tip(tips_p20[TIPS[i]])
 			p20.aspirate(10, BindingPlate[ROWS[i]+str(10)])
 			p20.dispense(10, BindingPlate[ROWS[i+1]+str(10)])
-			p20.mix(5,20, BindingPlate[ROWS[i+1]+str(10)].bottom(3))
-			p20.mix(5,20, BindingPlate[ROWS[i+1]+str(10)].bottom(6))
 			p20.mix(5,20, BindingPlate[ROWS[i+1]+str(10)].bottom(1))
+			p20.mix(5,20, BindingPlate[ROWS[i+1]+str(10)].bottom(3))
 			p20.mix(5,20, BindingPlate[ROWS[i+1]+str(10)].bottom(6))
 			p20.drop_tip()
 		
