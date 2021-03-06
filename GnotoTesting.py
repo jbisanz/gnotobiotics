@@ -76,7 +76,7 @@ def run(protocol: protocol_api.ProtocolContext):
 	if AddBeads:
 		protocol.comment('--------->Adding mag beads')
 		p300.pick_up_tip()
-		p300.mix(10, 30, Solutions['A1'])
+		p300.mix(10, 30, Solutions['A1'].bottom(0))
 		p300.drop_tip()
 		
 		for i in cols_to_extract:
@@ -84,8 +84,10 @@ def run(protocol: protocol_api.ProtocolContext):
 			#p20.mix(5, 20, Solutions['A1'])
 			p20.aspirate(volume_magbeads, Solutions['A1'])
 			p20.dispense(volume_magbeads, BindingPlate['A'+str(i)])
-			p20.mix(nmix, 20)
 			p20.drop_tip()
+			p300.pick_up_tip()
+			p300.mix(10, 100, Solutions['A1'].bottom(0))
+			p300.drop_tip()
 		
 	if CaptureBinding:
 		protocol.comment('--------->Removing Binding Buffer')
@@ -149,7 +151,9 @@ def run(protocol: protocol_api.ProtocolContext):
 		p20.pick_up_tip(tips_p20['H12'])
 		p20.aspirate(10, std['A1'].bottom(5))
 		p20.dispense(10, BindingPlate['A10'])
-		p20.mix(5,20,  BindingPlate['A10'])
+		p20.mix(5,20,  BindingPlate['A10'].bottom(1))
+		p20.mix(5,20,  BindingPlate['A10'].bottom(3))
+		p20.mix(5,20,  BindingPlate['A10'].bottom(6))
 		p20.drop_tip()
 		
 		#serial dilute from A10 down column
