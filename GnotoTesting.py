@@ -35,7 +35,7 @@ def run(protocol: protocol_api.ProtocolContext):
 	volume_h20 = 50 # volume of water
 	volume_elution = 40 # elution volume to transfer to clean wells (defaults)
 	
-	capture_depth = 0 # depth below ideal bottom of plate to remove supernatants
+	capture_depth = 1 # depth below ideal bottom of plate to remove supernatants
 	capture_min = 2 # number of minutes to capture beads on magnets
 	nmix = 5 # number of times to pipette to mix
 	drying_min = 0.5 # number of extra minutes to dry DNA after STD is made
@@ -76,7 +76,7 @@ def run(protocol: protocol_api.ProtocolContext):
 	if AddBeads:
 		protocol.comment('--------->Adding mag beads')
 		p300.pick_up_tip()
-		p300.mix(10, 30, Solutions['A1'].bottom(0))
+		p300.mix(10, 30, Solutions['A1'].bottom(capture_depth))
 		p300.drop_tip()
 		
 		for i in cols_to_extract:
@@ -86,7 +86,7 @@ def run(protocol: protocol_api.ProtocolContext):
 			p20.dispense(volume_magbeads, BindingPlate['A'+str(i)])
 			p20.drop_tip()
 			p300.pick_up_tip()
-			p300.mix(10, 100, Solutions['A1'].bottom(0))
+			p300.mix(10, 100, BindingPlate['A'+str(i)].bottom(capture_depth))
 			p300.drop_tip()
 		
 	if CaptureBinding:
